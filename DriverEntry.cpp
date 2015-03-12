@@ -103,7 +103,7 @@ VOID DriverUnload(IN PDRIVER_OBJECT DriverObject)
 		InterlockedExchange((PLONG)&TargetDriver->MajorFunction[IRP_MJ_SCSI], (LONG)OriginalScsi);
 
 	if(TargetDevice)
-		ObDereferenceObject(TargetDriver);
+		ObDereferenceObject(TargetDevice);
 
 	if(FakeMbr)
 		ExFreePool(FakeMbr);
